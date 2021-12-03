@@ -1,0 +1,28 @@
+#empleados-buscar-container{
+    margin-top:50px;
+} 
+
+#empleados-container{
+    margin-top:130px;
+}
+
+.react-bs-table-sizePerPage-dropdown .dropdown-toggle{
+    float : left;
+    margin-bottom: 20px;
+}
+
+.search-label{
+    float: right;
+    padding-bottom: 10px;
+}
+
+.sr-only{
+    font-size: 0;
+}
+
+
+#empleados-crear-container, #empleado-label {
+    float: left;
+    margin-top: 10px;
+
+}

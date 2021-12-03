@@ -1,0 +1,39 @@
+#login-container{
+    margin-top: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#login-container h2,
+#login-container button,
+#login-container form{
+    width: 100%;
+
+}
+
+#login-container button{
+    margin-top: 0px;
+}
+
+#login-container .form-label{
+    float: right;
+}
+
+#titulo-Login{
+    padding-top: 20px;
+}
+
+#titulo-Login h2, p{
+    text-align: center;
+    color:#00bcd4;
+}
+
+#login-options{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+/* #login-option p{
+    font-size: 12px;
+} */
