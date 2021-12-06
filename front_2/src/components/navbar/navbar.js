@@ -5,9 +5,11 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css'
 import Cookies from 'universal-cookie/es6'
 
+import { Route , withRouter} from 'react-router-dom';
+
 const cookies = new Cookies();
 
-export default class Menu  extends React.Component {
+class Menu  extends React.Component {
     constructor(props) {
         super(props);
         this.state = {  }
@@ -15,7 +17,7 @@ export default class Menu  extends React.Component {
 
     Logout(){
         cookies.remove('_s');
-        window.location.reload();
+        this.props.history.push('/login');
     }
 
     render() { 
@@ -50,4 +52,6 @@ export default class Menu  extends React.Component {
     );
     }
 }
+
+export default withRouter(Menu);
 
