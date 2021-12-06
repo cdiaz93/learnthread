@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios'; //conecta el back
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col, Nav } from 'react-bootstrap';
 import {APIHOST as host } from '../../app.json'
 import'./login.css';
 import { isNull } from 'util';
 import Cookies from 'universal-cookie'
 import {calculaEspiracionSesion} from '../helper/helper';
+import Fregistro from './registro';
 
 //imagen para login
 import image1 from '../public/imag/loginBanner.png'
@@ -23,7 +24,10 @@ export default class login  extends React.Component {
             loading:false,
             usuario:'',
             pass:'',
+            // currentTab: "login",
         };
+
+        // this.vistaRegistro = this.vistaRegistro.bind(this);
     }
     iniciarSesion(){
 
@@ -53,31 +57,20 @@ export default class login  extends React.Component {
         } );
 
     }
+
+    // vistaRegistro(){
+    //     this.setState({ currentTab: 'registro'});
+    // }
+
     render() { 
         return ( 
+
+
             <Container id="login-container" >
 
                 <Loading show={this.state.loading}/>
 
                 <Row>
-
-                <Col sm={12}  
-                        xs={12} 
-                        md={{span:4, offset:0}} 
-                        lg={{span:6, offset:0}} 
-                        xl={{span:6, offset:0}}>
-                        <img src={ image1 } fluid />
-                    </Col>
-                    
-
-                    <Col
-
-                    sm={12}  
-                        xs={12} 
-                        md={{span:4, offset:2}} 
-                        lg={{span:5, offset:1}} 
-                        xl={{span:5, offset:1}}
-                    >
 
                     <Row id="titulo-Login">
                         <Col>
@@ -85,59 +78,50 @@ export default class login  extends React.Component {
                         <p> Ingrese sus datos de cuenta para continuar. </p> 
                         </Col>
 
-                    </Row>
-                    {/*<Row>
-                        <Col
-                        sm="12"
-                        xs="12"
-                        md={{span:4, offset:4}}
-                        lg={{span:4, offset: 4}}
-                        xl={{span:4, offset: 4}}
-                    >*/}
-
+                    </Row>                   
+                    <hr/>
+                    
+                    <Form>    
+                        <Form.Group className="mt-2 mb-3">
+                            <Form.Label >Ingrese su usuario</Form.Label>
+                            <Form.Control 
+                            onChange={(e)=>
+                                this.setState({usuario: e.target.value})
+                            }
+                            />
+    
+                        </Form.Group>
+    
+                        <Form.Group className="mt-4 mb-5">
+                            <Form.Label >Ingrese su contraseña</Form.Label>
+                            <Form.Control type="password" placeholder="*****"
+                            onChange={(e)=>
+                                this.setState({pass: e.target.value})
+                            } 
+                            />
+                            
+                        </Form.Group>
                 
-                <hr/>
-                
-                <Form>    
-                    <Form.Group className="mt-5 mb-3">
-                        <Form.Label >Ingrese su usuario</Form.Label>
-                        <Form.Control 
-                        onChange={(e)=>
-                            this.setState({usuario: e.target.value})
-                        }
-                        />
+                        <Button 
+                        variant="outline-info" 
+                            onClick={()=>{
+                                this.iniciarSesion();
+                            }}
+                            >
+                        Iniciar Sesion
+                        </Button> 
+                    </Form> 
+    
+                    {/* <Row id="login-options"> 
+                        <span> No tiene una cuenta?  - 
+                            <a href="" onClick={this.vistaRegistro}> Registrese  
+                            </a>
+                        </span>
+                    </Row> */}
 
-                    </Form.Group>
-
-                    <Form.Group className="mt-4 mb-5">
-                        <Form.Label >Ingrese su contraseña</Form.Label>
-                        <Form.Control type="password" placeholder="*****"
-                        onChange={(e)=>
-                            this.setState({pass: e.target.value})
-                        } 
-                        />
-                        
-                    </Form.Group>
-            
-                    <Button 
-                    variant="outline-info" 
-                        onClick={()=>{
-                            this.iniciarSesion();
-                        }}
-                        >
-                    Iniciar Sesion
-                    </Button> 
-                </Form> 
-
-                <Row id="login-options"> 
-                            <span> No tiene una cuenta?  - <a href="/registro"> Registrese  </a></span>
-                        </Row>
-
-                </Col>
                 </Row>
-                {/*</Col>
-                //</Row>*/}
             </Container>
+
         );
     }
 }

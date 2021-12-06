@@ -4,7 +4,7 @@ import {BrowserRouter as Router,
     Switch,
 } from "react-router-dom";
 
-import Login from "../login/login"
+import Login from "../login/loginIndex"
 import Registro from "../login/registro"
 import PrivateRoute from '../auth/privateroute';
 import Empleados from "../empleados/croud";

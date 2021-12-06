@@ -52,6 +52,7 @@ export default class login extends React.Component {
         // );
     }
 
+
     render() { 
         return (  
             <Container id="login-container">
@@ -59,32 +60,18 @@ export default class login extends React.Component {
 
 
                 <Row>   
-                    <Col sm={12}  
-                        xs={12} 
-                        md={{span:4, offset:0}} 
-                        lg={{span:6, offset:0}} 
-                        xl={{span:6, offset:0}}>
-                        <img src={ image1 } fluid />
-                    </Col>
-                    
-                    <Col 
-                        sm={12}  
-                        xs={12} 
-                        md={{span:4, offset:2}} 
-                        lg={{span:5, offset:1}} 
-                        xl={{span:5, offset:1}}
-                    >
+
 
                         <Row id="titulo-Login">
                             <Col>
-                                <h2> Cree una nueva cuenta </h2> <br/>
+                                <h2> Cree una nueva cuenta </h2>
                                 <p> Ingrese los siguientes datos para registrarse </p> 
                             </Col>
                         </Row> 
                         <hr/>
                         <Form>
 
-                            <Form.Group className="mt-5 mb-3">
+                            <Form.Group className="mt-2 mb-3">
                                 <Form.Label> Nombres  </Form.Label>
                                 <Form.Control type="email" placeholder="Ingrese su nombre" rounded  
                                     onChange={(e)=>
@@ -124,12 +111,6 @@ export default class login extends React.Component {
                                 Registrarse
                             </Button>
                         </Form>
-
-                        <Row id="login-options"> 
-                            <span> Ya tiene una cuenta?  - <a href="/"> Iniciar sesión  </a></span>
-                        </Row>
-                        
-                    </Col>
 
                     <Col>
                     </Col>
