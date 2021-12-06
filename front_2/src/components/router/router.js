@@ -2,7 +2,9 @@ import React from "react";
 import {BrowserRouter as Router, 
     Route,
     Switch,
+    withRouter,
 } from "react-router-dom";
+
 
 import Login from "../login/loginIndex"
 import Registro from "../login/registro"
@@ -10,7 +12,7 @@ import PrivateRoute from '../auth/privateroute';
 import Empleados from "../empleados/croud";
 
 
-export default function AppRouter () {
+export default  function AppRouter()  {
     return(
         <Router>
             <Switch>
@@ -31,4 +33,4 @@ export default function AppRouter () {
             </Switch>
         </Router>
     )
-}
+} 

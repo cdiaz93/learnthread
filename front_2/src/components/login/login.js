@@ -7,6 +7,7 @@ import { isNull } from 'util';
 import Cookies from 'universal-cookie'
 import {calculaEspiracionSesion} from '../helper/helper';
 import Fregistro from './registro';
+import { Route , withRouter} from 'react-router-dom';
 
 //imagen para login
 import image1 from '../public/imag/loginBanner.png'
@@ -17,7 +18,7 @@ import Loading from '../loading/loading';
 
 const cookies = new Cookies();
 
-export default class login  extends React.Component {
+class login  extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,6 +29,7 @@ export default class login  extends React.Component {
         };
 
         // this.vistaRegistro = this.vistaRegistro.bind(this);
+        this.iniciarSesion = this.iniciarSesion.bind(this);
     }
     iniciarSesion(){
 
@@ -126,7 +128,7 @@ export default class login  extends React.Component {
     }
 }
 
-
+export default withRouter(login);
 
 
 

@@ -9,7 +9,7 @@ import {APIHOST as host} from '../../app.json'
 import image1 from '../public/imag/loginBanner.png';
 
 //Atajo tecaldo: ccc
-export default class login extends React.Component {
+export default class registro extends React.Component {
     constructor(props) {
         super(props);
         this.state = {  
@@ -34,7 +34,8 @@ export default class login extends React.Component {
             var data = response.data;
             console.log(data.token);
     
-            this.props.history.push('/');
+            // this.props.history.push('/');
+            this.props.changeTab('login');
             // this.setState( {loading:false} );
         })
         .catch((err) =>{

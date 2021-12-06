@@ -19,7 +19,7 @@ import Loading from '../loading/loading';
 
 const cookies = new Cookies();
 
-export default class login  extends React.Component {
+export default class indexlogin  extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,40 +29,46 @@ export default class login  extends React.Component {
             currentTab: 'login'
         };
 
-        this.vistaRegistro = this.vistaRegistro.bind(this);
+        // this.vistaRegistro = this.vistaRegistro.bind(this);
+        this.changeTab=this.changeTab.bind(this)
     }
-    iniciarSesion(){
+    // iniciarSesion(){
 
-        this.setState({ loading: true}); //llama el cirulo de carga
+    //     this.setState({ loading: true}); //llama el cirulo de carga
 
-        axios.post(`${host}/usuarios/login`, {
-            usuario: this.state.usuario,
-            pass: this.state.pass,
-        })
-        .then((response) => {
-            if(isNull(response.data.token)){
-                alert('usuario y/o contraseña invalida');
-            } else {
-                cookies.set('_s', response.data.token, {
-                    path:'/',
-                    expires: calculaEspiracionSesion(),
-                });
+    //     axios.post(`${host}/usuarios/login`, {
+    //         usuario: this.state.usuario,
+    //         pass: this.state.pass,
+    //     })
+    //     .then((response) => {
+    //         if(isNull(response.data.token)){
+    //             alert('usuario y/o contraseña invalida');
+    //         } else {
+    //             cookies.set('_s', response.data.token, {
+    //                 path:'/',
+    //                 expires: calculaEspiracionSesion(),
+    //             });
 
-                this.props.history.push('/empleados');
-            }
+    //             this.props.history.push('/empleados');
+    //         }
             
-            this.setState({ loading: false});
-        })
-        .catch((err) =>{
-            console.log(err);
-            this.setState({ loading: false});
-        } );
+    //         this.setState({ loading: false});
+    //     })
+    //     .catch((err) =>{
+    //         console.log(err);
+    //         this.setState({ loading: false});
+    //     } );
 
+    // }
+
+    // vistaRegistro(){
+    //     this.setState({ currentTab: 'registro'});
+    // }
+
+    changeTab(tab){
+        this.setState({currentTab:tab});
     }
 
-    vistaRegistro(){
-        this.setState({ currentTab: 'registro'});
-    }
 
     render() { 
         return ( 
